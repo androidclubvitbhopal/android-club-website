@@ -2,7 +2,7 @@ import React from "react";
 import Department from '../../components/Department/Department';
 import "./team.css";
 import { departments } from './teamData';
-import { HashLink as Link } from 'react-router-hash-link';
+import { Link as ScrollLink } from 'react-scroll';
 
 
 const Team = () => {
@@ -19,13 +19,21 @@ const Team = () => {
     { name: "Design Team", image: "/TeamPage_Assets/design.png" },
     { name: "Media Team", image: "/TeamPage_Assets/media.png" }
   ];
-
+   
+  const handleNavClick = (departmentName) => {
+    const section = document.getElementById(departmentName.toLowerCase().replace(/ /g, '-'));
+    if (section) {
+      section.classList.add('slide-in-right');
+    }
+  };
   return (
+    
     <>
       <main>
-        <div className="border h-screen   team-bg bg-cover bg-center flex flex-col items-center justify-start
-        "
-        >
+      <div className="border h-screen team-bg bg-cover bg-center flex flex-col items-center justify-start" style={{backgroundImage: 'url("/TeamPage_Assets/main_bg.png")'}}>
+  
+
+
           <h1 className="text-5xl font-bold ml-11">
             MEET
             <br />
@@ -35,15 +43,22 @@ const Team = () => {
         <section>
           <div className="h-34 p-2 px-8 flex justify-between items-center dark-green-bg">
             {icon_departments.map((department, index) => (
-              <Link
+              <ScrollLink
                 key={index} className="w-20 h-24 p-0 m-2 flex flex-col  justify-center items-center "
-                smooth to={`#${department.name.toLowerCase().replace(/ /g, '-')}`}>
+              to={department.name.toLowerCase().replace(/ /g, '-')}
+              smooth={true}
+              duration={500}
+              activeClass="active"
+              spy={true}
+              offset={-70}
+              onClick={() => handleNavClick(department.name)}
+            >
                 <div
                   className=" p-0 w-14 h-16 bg-cover bg-center"
                   style={{ backgroundImage: `url(${department.image})` }}
                 ></div>
                 <p className="text-white leading-none">{department.name}</p>
-              </Link>
+            </ScrollLink>
             ))}
           </div>
         </section>
