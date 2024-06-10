@@ -1,0 +1,23 @@
+.team-bg {
+    background-image: url('./TeamPage_assets/main_bg.png');
+    background-color: #E6F1E8;
+    /* background-color: pink; */
+    color: #182b23;
+}
+
+.text-color {
+    color: #182b23;
+    background-color: #E6F1E8;
+}
+.dark-green-bg{
+    background-color: #182b23;
+}
+
+.post{
+    color: #E6F1E8;
+}
+
+.fade-green-bg{
+    background: #254336;
+}
+

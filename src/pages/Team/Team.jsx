@@ -1,10 +1,59 @@
 import React from "react";
-import MemberCard from "../../components/Member-Card/MemberCard";
+import Department from '../../components/Department/Department';
+import "./team.css";
+import { departments } from './teamData';
+import { HashLink as Link } from 'react-router-hash-link';
+
 
 const Team = () => {
-  return <div>
+
+  const icon_departments = [
+    { name: "Android Team", image: "/TeamPage_Assets/android.png" },
+    { name: "SDC", image: "/TeamPage_Assets/sdc.png" },
+    { name: "Research & Development", image: "/TeamPage_Assets/sdc.png" }, // Replace with the correct path
+    { name: "PR & Outreach", image: "/TeamPage_Assets/pr_and_outreach.png" },
+    { name: "Event Management", image: "/TeamPage_Assets/evm.png" },
+    { name: "Finance", image: "/TeamPage_Assets/finance.png" },
+    { name: "UI/UX", image: "/TeamPage_Assets/sdc.png" }, // Replace with the correct path
+    { name: "Content Team", image: "/TeamPage_Assets/content.png" },
+    { name: "Design Team", image: "/TeamPage_Assets/design.png" },
+    { name: "Media Team", image: "/TeamPage_Assets/media.png" }
+  ];
+
+  return (
     <>
       <main>
+        <div className="border h-screen   team-bg bg-cover bg-center flex flex-col items-center justify-start
+        "
+        >
+          <h1 className="text-5xl font-bold ml-11">
+            MEET
+            <br />
+            THE TEAM
+          </h1>
+        </div>
+        <section>
+          <div className="h-34 p-2 px-8 flex justify-between items-center dark-green-bg">
+            {icon_departments.map((department, index) => (
+              <Link
+                key={index} className="w-20 h-24 p-0 m-2 flex flex-col  justify-center items-center "
+                smooth to={`#${department.name.toLowerCase().replace(/ /g, '-')}`}>
+                <div
+                  className=" p-0 w-14 h-16 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${department.image})` }}
+                ></div>
+                <p className="text-white leading-none">{department.name}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+        {departments.map((department, index) => (
+          <Department key={index} department={department} row={index % 2 !== 0} />
+        ))}
+
+      </main>
+
+      {/* <main>
         <div className='team-bg h-96 bg-black bg-cover bg-center flex flex-col items-start justify-end '>
           <div className='text-white pl-44 font-bold  text-6xl '>
             MEET
@@ -17,7 +66,7 @@ const Team = () => {
           </div>
         </div>
       </main>
-      <section>
+       <section>
         <div className='text-center p-10 split-bg '>
           <h2 className='text-4xl  font-semibold  pb-5'>
             Great work requires great people, and we think ours are some of the best
@@ -241,11 +290,12 @@ const Team = () => {
             </div>
           </section>
         </div>
-      </section>
+      </section>    */}
 
 
     </>
-  </div>;
+
+  )
 };
 
 export default Team;

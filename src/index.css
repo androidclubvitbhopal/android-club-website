@@ -16,10 +16,21 @@ a {
 @tailwind components;
 @tailwind utilities;
 
-.team-bg {
-  background-image: url('C:\Users\abc\Desktop\I THE BEGGINER\android website\android-club-webapp2\public\TeamPage Assets\hero-bg.jpg');
+/* .team-bg {
+  background-image: url('./TeamPage_assets/main_bg.png');
+  background-color: #E6F1E8;
+  /* background-color: pink; 
+  color: #182b23;
+}
+
+.text-color {
+  color: #182b23;
+  background-color: #E6F1E8;
+}
+.main-bar{
+  background-color: #182b23;
 }
 
 .split-bg {
   background: linear-gradient(to bottom, #16A34A 4.7%, #15803D 4.7%);
-}
+} */
