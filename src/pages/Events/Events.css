@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Lilita+One&display=swap");
+
+/* HERO_SECTION */
+body{
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+.hero_section {
+  height: 100vh;
+  background: linear-gradient(to bottom, #e6f1e8 55%, #275e06 45%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  font-family: "Fredoka", sans-serif;
+  padding: 2rem;
+  font-size: 4rem;
+  font-weight: 800;
+  color: #7ac140;
+  align-self: flex-start;
+}
+.main_island {
+  position: absolute;
+  width: 65%;
+  z-index: 10;
+}
+.main_island img {
+  width: 100%;
+}
+
+.background {
+  position: absolute;
+  transform: translateY(-37.5%);
+}
+.clouds {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.clouds img {
+  width: 15%;
+}
+.trees {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.trees img {
+  width: 20%;
+}
+
+/* EVENTS CALENDER */
+
+.events_calender {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #367010;
+}
+.events_calender img {
+  width: 35%;
+}
+.calender_content {
+  width: 40%;
+}
+.calender_content_title {
+  text-align: center;
+  margin: 2rem;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 800;
+  font-size: 3.5rem;
+  color: white;
+}
+.calender_content_desc {
+  font-family: "Canva-sans", sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-align: justify;
+  color: white;
+}
+
+/* UPCOMING EVENTS */
+
+.upcoming_events {
+  height: 100vh;
+  background: #4a6218;
+  overflow: hidden;
+}
+
+.upcoming_events_title {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-family: "Lilita One", sans-serif;
+  color: white;
+}
+.upcoming_events_title img {
+  width: 10%;
+}
+.upcoming_events_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.upcoming_events_content img {
+  width: 60%;
+}
+
+.phone_content {
+  position: absolute;
+  width: 45%;
+  background: #4a6218;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.phone_content .event {
+  width: 50%;
+}
+
+.phone_content .event_desc {
+  width: 50%;
+  text-align: center;
+  font-size: 2rem;
+  font-family: "Lilita One", sans-serif;
+  color: white;
+}
+.register_btn {
+  margin-top: 1rem;
+  padding: 0.5rem 0.8rem;
+  font-size: 1.5rem;
+  font-family: "Lilita One", sans-serif;
+  color: #275e06;
+  background: white;
+  border-radius: 2rem;
+}
+
+/* PAST EVENTS */
+
+.past_events {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #367010;
+}
+.past_events_box{
+display: flex;
+}
+.demoevent{
+  width: 80%;
+}
+
+.past_event_container{
+  margin:2rem;
+}
