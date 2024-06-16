@@ -2,29 +2,18 @@ import { useEffect, useRef } from "react";
 import { motion, useMotionValue, useSpring, useAnimation } from "framer-motion";
 import React from "react";
 /**
- * Counter component to animate number counting when in view.
- *
- * @param {object} props - Component props.
- * @param {number} props.start_value - The starting value for the counter.
- * @param {number} props.end_value - The target value for the counter.
+ * @param {object} props 
+ * @param {number} props.start_value 
+ * @param {number} props.end_value 
  */
 export default function Counter({ start_value, end_value }: { start_value: number, end_value: number }) {
-  // Reference to the DOM element
   const ref = useRef<HTMLSpanElement>(null);
-
-  // Initialize motion value starting from start_value
   const motionValue = useMotionValue(start_value);
-
-  // Apply spring animation to the motion value
   const springValue = useSpring(motionValue, {
     damping: 100,
     stiffness: 100,
   });
-
-  // Animation controls to handle the view states
   const controls = useAnimation();
-
-  // Use effects to handle entering and leaving the viewport
   useEffect(() => {
     const handleViewportEnter = () => {
       motionValue.set(start_value);
@@ -58,8 +47,6 @@ export default function Counter({ start_value, end_value }: { start_value: numbe
       };
     }
   }, [motionValue, controls, start_value, end_value]);
-
-  // Update the text content of the span element whenever the spring value changes
   useEffect(() => {
     const unsubscribe = springValue.on("change", (latest) => {
       if (ref.current) {

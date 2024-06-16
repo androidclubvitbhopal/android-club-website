@@ -16,93 +16,7 @@ import {
 } from "date-fns";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-const events = [
-  {
-    id: "event14",
-    name: "Workshop-Android Development",
-    startDatetime: "2018-03-16T8:30",
-    endDatetime: "2018-03-18T18:00",
-  },
-  {
-    id: "event13",
-    name: "Blind Coding",
-    startDatetime: "2019-12-06T13:30",
-    endDatetime: "2019-12-06T16:30",
-  },
-  {
-    id: "event12",
-    name: "V-Code",
-    startDatetime: "2019-03-29T11:00",
-    endDatetime: "2019-03-29T14:00",
-  },
-  {
-    id: "event11",
-    name: "Android Master",
-    startDatetime: "2022-04-15T17:00",
-    endDatetime: "2022-04-15T20:30",
-  },
-  {
-    id: "event10",
-    name: "Code-Raid",
-    startDatetime: "2022-04-22T10:00",
-    endDatetime: "2022-04-22T12:00",
-  },
-  {
-    id: "event9",
-    name: "App-A-Thon",
-    startDatetime: "2022-12-24T08:00",
-    endDatetime: "2022-12-28T06:00",
-  },
-  {
-    id: "event8",
-    name: "Andro-Series",
-    startDatetime: "2023-02-11T15:00",
-    endDatetime: "2023-02-11T18:30",
-  },
-  {
-    id: "event7",
-    name: "Front-End Sprint",
-    startDatetime: "2023-04-10T09:45",
-    endDatetime: "2023-04-10T14:30",
-  },
-  {
-    id: "event6",
-    name: "Bug Off",
-    startDatetime: "2023-05-15T09:00",
-    endDatetime: "2023-05-15T18:30",
-  },
-  {
-    id: "event5",
-    name: "Andro-Series 2.0",
-    startDatetime: "2023-06-26T10:00",
-    endDatetime: "2023-06-26T11:00",
-  },
-  {
-    id: "event4",
-    name: "Cultural Craft",
-    startDatetime: "2023-07-31T09:30",
-    endDatetime: "2023-07-31T13:30",
-  },
-  {
-    id: "event3",
-    name: "Meet and Greet",
-    startDatetime: "2023-10-11T09:00",
-    endDatetime: "2023-10-11T12:00",
-  },
-  {
-    id: "event2",
-    name: "DSA Tussle",
-    startDatetime: "2024-02-22T11:00",
-    endDatetime: "2024-02-22T15:30",
-  },
-  {
-    id: "event1",
-    name: "Android Fusion",
-    startDatetime: "2024-05-09T09:00",
-    endDatetime: "2024-05-09T16:20",
-  },
-];
+import EventsData from "../EventDetails/EventsData";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -155,13 +69,13 @@ export default function Example() {
   }
 
   function hasEvents(date) {
-    const monthEvents = events.filter((event) =>
+    const monthEvents = EventsData.filter((event) =>
       isSameMonth(parseISO(event.startDatetime), date)
     );
     return monthEvents.length > 0;
   }
 
-  let currentMonthEvents = events.filter((event) =>
+  let currentMonthEvents = EventsData.filter((event) =>
     isSameMonth(parseISO(event.startDatetime), firstDayCurrentMonth)
   );
 
@@ -246,7 +160,7 @@ export default function Example() {
                   </button>
 
                   <div className="w-1 h-1 mx-auto mt-1">
-                    {events.some((event) =>
+                    {EventsData.some((event) =>
                       isSameDay(parseISO(event.startDatetime), day)
                     ) && (
                       <div className="w-1 h-1 rounded-full bg-sky-500"></div>
@@ -294,9 +208,8 @@ function Events({ event, navigate }) {
   let startDateTime = parseISO(event.startDatetime);
   let endDateTime = parseISO(event.endDatetime);
 
-
   const handleEventClick = () => {
-    const eventIdNumber = parseInt(event.id.replace('event', ''), 10);
+    const eventIdNumber = parseInt(event.id.replace("event", ""), 10);
     if (eventIdNumber >= 1 && eventIdNumber <= 5) {
       navigate(`/events/${event.id}`);
     }
@@ -308,14 +221,13 @@ function Events({ event, navigate }) {
       onClick={handleEventClick}
     >
       <div className="flex-auto">
-        <p className="mt-0.5 text-sm text-center ">
+        <p className="mt-0.5 text-sm text-center">
           <time dateTime={event.startDatetime}>
-            {format(startDateTime, "MMMM yyyy, dd")} {"( "} {format(startDateTime, "h:mm a")}
+            {format(startDateTime, "MMMM yyyy, dd")} {"( "}{" "}
+            {format(startDateTime, "h:mm a")}
           </time>{" "}
           {" - "}
-          <time dateTime={event.endDatetime}>
-            {format(endDateTime, "h:mm a")}
-          </time>{" "}
+          <time dateTime={event.endDatetime}>{format(endDateTime, "h:mm a")}</time>{" "}
           {")"}
         </p>
         <p className="mt-1">{event.name}</p>
