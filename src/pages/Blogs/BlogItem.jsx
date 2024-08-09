@@ -84,9 +84,15 @@ const BlogItem = ({ title, date, tag, img, body }) => {
         </div>
       </CardHeader>
       <CardContent>
-        <img src={img} alt="Article Image" className="w-full h-auto rounded-md" />
+        <div className="relative w-full h-0" style={{ paddingTop: '56.25%' }}>
+          <img
+            src={img}
+            alt="Article Image"
+            className="absolute top-0 left-0 w-full h-full object-cover rounded-md"
+          />
+        </div>
         <p className="mt-4 text-left">{truncateText(body, 35)}</p>
-        <Link to={`/blogs/${encodeURIComponent(title)}`} state={{ title, date, tag, img, body }}>
+        <Link to={`/blogs/${encodeURIComponent(title)}`} state={{ title, date, img, body }}>
           <Button className="flex flex-start mt-2 px-4 py-2 bg-green-500 text-white font-bold rounded-md transition duration-300 transform hover:scale-105 hover:bg-green-600">
             Read More
           </Button>
